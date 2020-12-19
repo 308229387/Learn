@@ -1,9 +1,12 @@
 package com.learn.myapplication;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +16,8 @@ import java.util.List;
 import adapter.MainAdapter;
 import bean.MainData;
 
+
+//https://blog.csdn.net/myfittinglife/article/details/88633980   学习分割线
 public class MainActivity extends AppCompatActivity {
     private List<MainData> data = new ArrayList<MainData>();
 
@@ -24,9 +29,20 @@ public class MainActivity extends AppCompatActivity {
         initData();
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        //样式
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+        //间隔线
+        recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+        //adapter
         MainAdapter adapter = new MainAdapter(data);
+        adapter.setOnItemClickLitener(new MainAdapter.OnItemClickLitener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(MainActivity.this,"这是"+data.get(position).getName(),Toast.LENGTH_SHORT).show();
+
+            }
+        });
         recyclerView.setAdapter(adapter);
     }
 
