@@ -1,6 +1,8 @@
 package com.learn.myapplication;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -15,6 +17,8 @@ import java.util.List;
 
 import adapter.MainAdapter;
 import bean.MainData;
+import utils.ConvertUtils;
+import utils.MyDecoration;
 
 
 //https://blog.csdn.net/myfittinglife/article/details/88633980   学习分割线
@@ -33,7 +37,12 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         //间隔线
-        recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+//        recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+
+        MyDecoration myDecoration = new MyDecoration();
+        myDecoration.setColor(Color.GRAY).setMargin(ConvertUtils.dp2px(this, 15)).setDividerHeight(ConvertUtils.dp2px(this,1));
+        recyclerView.addItemDecoration(myDecoration);
+
         //adapter
         MainAdapter adapter = new MainAdapter(data);
         adapter.setOnItemClickLitener(new MainAdapter.OnItemClickLitener() {
