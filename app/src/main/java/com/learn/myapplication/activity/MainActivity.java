@@ -1,8 +1,10 @@
 package com.learn.myapplication.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,8 @@ import com.learn.myapplication.utils.MyDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
 
 
 //https://blog.csdn.net/myfittinglife/article/details/88633980   学习分割线
@@ -47,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
                 Toast.makeText(MainActivity.this, "这是" + data.get(position).getName(), Toast.LENGTH_SHORT).show();
+
+                switch (position){
+                    case 0:
+                        startActivity(new Intent(MainActivity.this,RequestActivity.class));
+                        break;
+                }
+
 
             }
         });
