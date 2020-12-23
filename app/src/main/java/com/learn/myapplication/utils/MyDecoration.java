@@ -1,4 +1,4 @@
-package utils;
+package com.learn.myapplication.utils;
 
 import android.graphics.Canvas;
 import android.graphics.Color;

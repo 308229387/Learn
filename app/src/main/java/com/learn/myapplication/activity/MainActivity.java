@@ -1,24 +1,22 @@
-package com.learn.myapplication;
+package com.learn.myapplication.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.provider.CalendarContract;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.learn.myapplication.R;
+import com.learn.myapplication.adapter.MainAdapter;
+import com.learn.myapplication.bean.MainData;
+import com.learn.myapplication.utils.ConvertUtils;
+import com.learn.myapplication.utils.MyDecoration;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import adapter.MainAdapter;
-import bean.MainData;
-import utils.ConvertUtils;
-import utils.MyDecoration;
 
 
 //https://blog.csdn.net/myfittinglife/article/details/88633980   学习分割线
@@ -40,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 //        recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
 
         MyDecoration myDecoration = new MyDecoration();
-        myDecoration.setColor(Color.GRAY).setMargin(ConvertUtils.dp2px(this, 15)).setDividerHeight(ConvertUtils.dp2px(this,1));
+        myDecoration.setColor(Color.GRAY).setMargin(ConvertUtils.dp2px(this, 15)).setDividerHeight(ConvertUtils.dp2px(this, 1));
         recyclerView.addItemDecoration(myDecoration);
 
         //adapter
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnItemClickLitener(new MainAdapter.OnItemClickLitener() {
             @Override
             public void onItemClick(View view, int position) {
-                Toast.makeText(MainActivity.this,"这是"+data.get(position).getName(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "这是" + data.get(position).getName(), Toast.LENGTH_SHORT).show();
 
             }
         });

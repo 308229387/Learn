@@ -1,10 +1,9 @@
-package adapter;
+package com.learn.myapplication.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,7 +16,7 @@ import com.learn.myapplication.R;
 
 import java.util.List;
 
-import bean.MainData;
+import com.learn.myapplication.bean.MainData;
 
 //后面有个泛型，不要忘了
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder>{

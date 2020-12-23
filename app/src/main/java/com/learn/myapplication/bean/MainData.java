@@ -1,4 +1,4 @@
-package bean;
+package com.learn.myapplication.bean;
 
 public class MainData {
     private String name;
